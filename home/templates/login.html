@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    
+    <div id="login-content">
+        <h2>Login</h2>
+        {% if password_wrong %}
+            <div class="password_wrong">
+                Username or password is not correct.
+            </div>
+        {% endif %}
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" id="login-button">Login</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+    {% if user.is_authenticated %}
+        {% if combined_list %}
+            {% for capsule, date in combined_list %}
+                <div class="capsule-content">
+                    <p id="title">
+                        <h2>{{capsule.title}}</h2>
+                    </p>
+
+                    {% if date > 0 %}
+                        <p>
+                            <label id="days">{{date}}</label>
+                            <label id="call-word">to open</label>
+                        </p>
+                    {% else %}
+                        <p>
+                            <label id="open-now">Open now!</label>
+                        </p>
+                    {% endif %}
+
+                    <p>
+                        <label class="call-word">Creat time</label>
+                        <label class="value">{{capsule.creat_time}}</label>
+                    </p>
+
+                    <p>
+                        <label class="call-word">Open time</label>
+                        <label class="value">{{capsule.open_time}}</label>
+                    </p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="not-found">No capsule.</p>
+        {% endif %}
+    {% else %}
+        <p class="not-found">Login to see capsules.</p>
+    {% endif %}
+
+{% endblock %}

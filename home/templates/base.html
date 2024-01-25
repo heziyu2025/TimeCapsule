@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Time Capsule{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">
+                <img src="{% static 'images/favicon.png' %}" height=40px>
+                <span>Time Capsule</span>
+            </a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" id="account">
+                    <span id="username">{{ user.username }}</span>
+                    <img src="{% static 'images/account.png' %}" height=40px>
+                </a>
+            {% else %}
+                <a href="{% url 'login' %}" id="account">
+                    <span id="username">Login</span>
+                    <img src="{% static 'images/account_unknown.png' %}" height=40px>
+                </a>
+            {% endif %}
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer>
+        <hr>
+        <p class="copywrite">&copy; 2024 Time Capsule. All rights reserved.</p>
+    </footer>
+</body>
+</html>

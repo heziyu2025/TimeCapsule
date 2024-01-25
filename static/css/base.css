@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'Alegreya Sans SC Regular';
+    src: url('font/Alegreya Sans SC Regular.ttf') format('truetype');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f1e8;
+}
+
+header {
+    background-color: #f8f1e8;
+    width: 100%;
+    color: #edc317;
+    margin-top: 0;
+    display: flex;
+    height: 60px;
+    align-items: center;
+    border: 1px solid #e1e1e1;
+    box-shadow: 0px 10px 5px #eaeaea;
+}
+
+header nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+header a, header a:active, a.logo {
+    color: #ffaa20;
+    text-decoration: none;
+}
+
+a.logo {
+    font-family: 'Alegreya Sans SC Regular', sans-serif;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+}
+
+a.logo img {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+a#account {
+    margin-left: auto;
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+a#account:hover {
+    background-color: #fdead2;
+    box-shadow: 0 0 10px #dbdbdb;
+}
+
+a#account #username {
+    margin-right: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: left;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer hr {
+    background-color: #949496;
+    height: 1px;
+    border: none;
+    margin-right: 20px;
+}
+
+footer p.copywrite {
+    margin: 0;
+    color: #949496;
+}

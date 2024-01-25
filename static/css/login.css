@@ -1,0 +1,71 @@
+#login-content {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 10px;
+    border: #edc317 solid 0.5px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #dbdbdb;;
+
+    width: 400px;
+    height: 300px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    color: #424242;
+}
+
+.password_wrong {
+    border: red solid 1px;
+    border-radius: 5px;
+    background-color: #fdaaaa;
+    padding: 5px;
+    color: red;
+    margin-bottom: 10px;
+}
+
+form p {
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+form label {
+    color: #a1a1a1;
+}
+
+form input {
+    background-color: #f8f1e8;
+    border: #dbdbdb solid 0.5px;
+    border-radius: 5px;
+    height: 25px;
+    width: auto;
+    transition: all 0.1s ease;
+}
+
+form input:focus {
+    border: #edc317 solid 2px;
+    outline: none;
+    box-shadow: 0 0 5px #dbdbdb;;
+}
+
+button {
+    width: 300px;
+    background-color: #edc317;
+    border: #d7d7d7 solid 1px;
+    border-radius: 10px;
+    height: 30px;
+    transition: all 0.1s ease-in-out;
+    color: #424242;
+    font-size: medium;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #deb100;
+}
