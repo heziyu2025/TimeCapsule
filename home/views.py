@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+
 from datetime import datetime
 
 from .forms import LoginForm
 from .models import Capsule
+from .forms import SignupForm
 
 def index_view(request):
     # get capsules
@@ -27,6 +30,22 @@ def index_view(request):
                'combined_list': combined_list}
     
     return render(request, "index.html", content)
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}!')
+
+            return redirect('login')
+    else:
+        form = SignupForm()
+
+    return render(request, 'signup.html', {'form': form})
 
 def login_view(request):
     password_wrong = False
